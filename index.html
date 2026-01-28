@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RentForPeer Dashboard</title>
+
+  <!-- Google font closer to YouTube/Facebook -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Top Header -->
+  <header class="header">
+    <button class="sidebar-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="logo">RentForPeer</div>
+    <div class="header-actions">
+      <!-- Changed: Chat instead of Post -->
+      <button class="chat-btn"><i class="fas fa-comment-dots"></i> Chat</button>
+      <button class="login-btn">Login</button>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Dashboard</h3>
+      <button class="close-sidebar">&times;</button>
+    </div>
+
+    <div class="sidebar-item active" data-section="home">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </div>
+
+    <div class="sidebar-item" data-section="posts">
+      <i class="fas fa-edit"></i>
+      <span>Posts</span>
+    </div>
+
+    <div class="sidebar-item" data-section="explore">
+      <i class="fas fa-compass"></i>
+      <span>Explore</span>
+    </div>
+
+    <div class="sidebar-item" data-section="notifications">
+      <i class="fas fa-bell"></i>
+      <span>Notifications</span>
+    </div>
+
+    <div class="sidebar-item" data-section="messages">
+      <i class="fas fa-comment-dots"></i>
+      <span>Messages</span>
+    </div>
+
+    <div class="sidebar-item" data-section="follow">
+      <i class="fas fa-users"></i>
+      <span>Follow</span>
+    </div>
+
+    <div class="sidebar-item" data-section="charts">
+      <i class="fas fa-chart-line"></i>
+      <span>Charts</span>
+    </div>
+
+    <div class="sidebar-item" data-section="profile">
+      <i class="fas fa-user"></i>
+      <span>Profile</span>
+    </div>
+  </nav>
+
+  <div class="sidebar-overlay" id="overlay"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <!-- HOME -->
+    <section id="home" class="content-section active">
+      <h1 class="section-title">Home</h1>
+
+      <!-- Today overview -->
+      <div class="home-summary">
+        <div>
+          <span class="summary-label">Rents Today</span>
+          <span class="summary-value">2</span>
+        </div>
+        <div>
+          <span class="summary-label">Work Today</span>
+          <span class="summary-value">1</span>
+        </div>
+        <div>
+          <span class="summary-label">Active Members</span>
+          <span class="summary-value">5</span>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tab-header">
+        <button class="tab-btn active" data-tab="rent">Rent</button>
+        <button class="tab-btn" data-tab="work">Work</button>
+      </div>
+
+      <!-- RENT TAB -->
+      <div id="rent" class="tab-content active">
+        <h2 class="sub-title">Rented Members</h2>
+
+        <div class="rental-card">
+          <div class="user-avatar">RS</div>
+          <div class="rental-info">
+            <h4>Rahul Sharma</h4>
+            <p>Python Tutor • 3 sessions</p>
+            <p>⭐ 4.9 • Block A</p>
+            <p class="rental-status badge badge-active">Ongoing</p>
+          </div>
+          <div class="rental-meta">
+            <span>Today • 7:00–8:00 PM</span>
+            <span>Location: Library</span>
+          </div>
+        </div>
+
+        <div class="rental-card">
+          <div class="user-avatar">PS</div>
+          <div class="rental-info">
+            <h4>Priya S.</h4>
+            <p>Camera + Tripod</p>
+            <p>⭐ 4.7 • Block B</p>
+            <p class="rental-status badge badge-completed">Completed</p>
+          </div>
+          <div class="rental-meta">
+            <span>Yesterday • 5:00–7:00 PM</span>
+            <span>Location: Hostel Courtyard</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WORK TAB -->
+      <div id="work" class="tab-content">
+        <h2 class="sub-title">Your Work</h2>
+
+        <div class="work-card">
+          <div class="user-avatar">PK</div>
+          <div class="work-info">
+            <h4>Priya K</h4>
+            <p>Python Assignment Help</p>
+            <p class="rental-status badge badge-upcoming">Upcoming</p>
+          </div>
+          <div class="rental-meta">
+            <span>Tomorrow • 6:00–7:30 PM</span>
+            <span>Block C • Room 304</span>
+          </div>
+        </div>
+
+        <div class="work-card">
+          <div class="user-avatar">AR</div>
+          <div class="work-info">
+            <h4>Arjun R.</h4>
+            <p>Basic Web Development Session</p>
+            <p class="rental-status badge badge-completed">Completed</p>
+          </div>
+          <div class="rental-meta">
+            <span>Last Week • Lab 2</span>
+            <span>Feedback: “Very helpful!”</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POSTS -->
+    <section id="posts" class="content-section">
+      <h1 class="section-title">Posts</h1>
+
+      <div class="post-form">
+        <div class="post-form-top">
+          <div class="user-avatar">LG</div>
+          <textarea placeholder="Share your service, update or experience..."></textarea>
+        </div>
+        <div class="post-form-actions">
+          <button><i class="fas fa-image"></i> Photo</button>
+          <button class="primary-btn"><i class="fas fa-paper-plane"></i> Post</button>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-header">
+          <div class="user-avatar">RS</div>
+          <div>
+            <h4>Rahul S.</h4>
+            <span class="post-time">2h • Python Tutor</span>
+          </div>
+        </div>
+        <p class="post-text">
+          Just completed 5 Python tutoring sessions this week! Available for more CSE
+          first years who need help with basics and lab programs.
+        </p>
+        <div class="post-actions">
+          <button><i class="fas fa-thumbs-up"></i> 12</button>
+          <button><i class="fas fa-comment"></i> 3</button>
+          <button><i class="fas fa-share"></i></button>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-header">
+          <div class="user-avatar">PK</div>
+          <div>
+            <h4>Priya K.</h4>
+            <span class="post-time">5h • Lab Help</span>
+          </div>
+        </div>
+        <p class="post-text">
+          Helped two classmates finish their physics lab records with diagrams and
+          proper formatting. DM if you also need guidance for reports.
+        </p>
+        <div class="post-actions">
+          <button><i class="fas fa-thumbs-up"></i> 8</button>
+          <button><i class="fas fa-comment"></i> 1</button>
+          <button><i class="fas fa-share"></i></button>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-header">
+          <div class="user-avatar">LG</div>
+          <div>
+            <h4>Lokesh G.</h4>
+            <span class="post-time">1d • Web Dev</span>
+          </div>
+        </div>
+        <p class="post-text">
+          Started building RentForPeer – a platform where students can rent skills and
+          services from each other. Looking for testers and feedback.
+        </p>
+        <div class="post-actions">
+          <button><i class="fas fa-thumbs-up"></i> 20</button>
+          <button><i class="fas fa-comment"></i> 4</button>
+          <button><i class="fas fa-share"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPLORE -->
+    <section id="explore" class="content-section">
+      <h1 class="section-title">Explore</h1>
+
+      <div class="explore-search">
+        <i class="fas fa-search"></i>
+        <input id="exploreSearch" type="text" placeholder="Search services, people, posts..." />
+      </div>
+
+      <div class="tab-header">
+        <button class="tab-btn active" data-tab="social">Social</button>
+        <button class="tab-btn" data-tab="casual">Casual</button>
+      </div>
+
+      <div id="social" class="tab-content active">
+        <h2 class="sub-title">Professional (Social)</h2>
+
+        <div class="explore-card">
+          <div class="user-avatar">RS</div>
+          <div class="explore-main">
+            <h4>Python Tutoring – Rahul Sharma</h4>
+            <p>1st year CSE Python basics, doubt clearing, exam prep.</p>
+            <div class="explore-tags">
+              <span>Education</span><span>Python</span><span>CSE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="explore-card">
+          <div class="user-avatar">PK</div>
+          <div class="explore-main">
+            <h4>Lab Report Help – Priya K</h4>
+            <p>Formatting, diagrams, and explanation for physics/circuits labs.</p>
+            <div class="explore-tags">
+              <span>Projects</span><span>Reports</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="casual" class="tab-content">
+        <h2 class="sub-title">Casual</h2>
+
+        <div class="explore-card">
+          <div class="user-avatar">AR</div>
+          <div class="explore-main">
+            <h4>Evening Football Group</h4>
+            <p>Daily 5v5 matches in ground near Block A at 6 PM.</p>
+            <div class="explore-tags">
+              <span>Sports</span><span>Outdoor</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="explore-card">
+          <div class="user-avatar">LG</div>
+          <div class="explore-main">
+            <h4>Weekend Gaming Squad</h4>
+            <p>BGMI / Valorant lobby for chill games on Friday night.</p>
+            <div class="explore-tags">
+              <span>Gaming</span><span>Casual</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTIFICATIONS -->
+    <section id="notifications" class="content-section">
+      <h1 class="section-title">Notifications</h1>
+
+      <div class="notification">
+        <div class="user-avatar">PK</div>
+        <div>
+          <p>Priya K booked your Python service</p>
+          <span class="post-time">2 min ago</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MESSAGES -->
+    <section id="messages" class="content-section">
+      <h1 class="section-title">Messages</h1>
+
+      <div class="messages-layout">
+        <div class="messages-list">
+          <div class="messages-list-header">Chats</div>
+
+          <div class="chat-item active">
+            <div class="user-avatar small">RS</div>
+            <div>
+              <h4>Rahul Sharma</h4>
+              <p>Sure, we can meet at 7 PM...</p>
+            </div>
+            <span class="chat-time">2m</span>
+          </div>
+
+          <div class="chat-item">
+            <div class="user-avatar small">PK</div>
+            <div>
+              <h4>Priya K.</h4>
+              <p>Thanks for the help with lab report!</p>
+            </div>
+            <span class="chat-time">1h</span>
+          </div>
+
+          <div class="chat-item">
+            <div class="user-avatar small">AR</div>
+            <div>
+              <h4>Arjun R.</h4>
+              <p>Are you free this weekend?</p>
+            </div>
+            <span class="chat-time">Yesterday</span>
+          </div>
+        </div>
+
+        <div class="messages-chat">
+          <div class="chat-header">
+            <div class="user-avatar small">RS</div>
+            <div>
+              <h4>Rahul Sharma</h4>
+              <p class="chat-status">Python Tutor • Online</p>
+            </div>
+          </div>
+
+          <div class="chat-body">
+            <div class="message-row other">
+              <div class="message-bubble">
+                Hey, can you help me with loops in Python?
+              </div>
+              <span class="message-time">7:01 PM</span>
+            </div>
+
+            <div class="message-row me">
+              <div class="message-bubble">
+                Sure, let's meet in the library at 7:30 PM.
+              </div>
+              <span class="message-time">7:03 PM</span>
+            </div>
+
+            <div class="message-row other">
+              <div class="message-bubble">
+                Perfect, thank you!
+              </div>
+              <span class="message-time">7:04 PM</span>
+            </div>
+          </div>
+
+          <div class="chat-input-area">
+            <input type="text" placeholder="Type a message..." />
+            <button class="primary-btn">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOLLOW -->
+    <section id="follow" class="content-section">
+      <h1 class="section-title">Following</h1>
+
+      <div class="follow-card">
+        <div class="user-avatar">AS</div>
+        <div>
+          <h4>Ankit S.</h4>
+          <p>Python Expert</p>
+        </div>
+        <button class="primary-btn small">Following</button>
+      </div>
+    </section>
+
+    <!-- CHARTS -->
+    <section id="charts" class="content-section">
+      <h1 class="section-title">Charts</h1>
+
+      <div class="charts-intro">
+        Search one of your followed members to see their activity charts.
+      </div>
+
+      <!-- Search bar -->
+      <div class="explore-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="chartsSearch" placeholder="Search followed members..." />
+      </div>
+
+      <!-- Following list (for charts) -->
+      <div class="chart-follow-list">
+        <div class="follow-card small">
+          <div class="user-avatar small">RS</div>
+          <div>
+            <h4>Rahul Sharma</h4>
+            <p>Python Tutor</p>
+          </div>
+          <button class="outline-btn">View Chart</button>
+        </div>
+
+        <div class="follow-card small">
+          <div class="user-avatar small">PK</div>
+          <div>
+            <h4>Priya K.</h4>
+            <p>Lab Help</p>
+          </div>
+          <button class="outline-btn">View Chart</button>
+        </div>
+      </div>
+
+      <!-- Example chart -->
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Weekly Services (Sample)</h3>
+          <span class="chart-subtitle">Example chart for selected member</span>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-item">
+            <div class="bar" style="height: 30%;"></div>
+            <span class="bar-label">W1</span>
+          </div>
+          <div class="bar-item">
+            <div class="bar" style="height: 60%;"></div>
+            <span class="bar-label">W2</span>
+          </div>
+          <div class="bar-item">
+            <div class="bar" style="height: 40%;"></div>
+            <span class="bar-label">W3</span>
+          </div>
+          <div class="bar-item">
+            <div class="bar" style="height: 80%;"></div>
+            <span class="bar-label">W4</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="profile" class="content-section">
+      <h1 class="section-title">Profile</h1>
+
+      <div class="profile-card">
+        <div class="profile-top">
+          <div class="profile-avatar">LG</div>
+          <div class="profile-main">
+            <h2>Lokesh Gangavarapu</h2>
+            <p class="profile-subtitle">CSE 1st Year • SRM AP</p>
+            <p class="profile-location">Ravela, Andhra Pradesh, India</p>
+            <div class="profile-buttons">
+              <button class="primary-btn">Rent</button>
+              <button class="outline-btn">Follow</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-section-card">
+        <h3>About</h3>
+        <p>
+          Passionate CSE student interested in web development, problem solving and
+          building student-focused platforms like RentForPeer. Open to tutoring,
+          project collaboration and tech help.
+        </p>
+      </div>
+
+      <div class="profile-section-card">
+        <h3>Services Offered</h3>
+        <ul class="services-list">
+          <li>Python & C Programming Tutoring (1st year level)</li>
+          <li>Assignment guidance and debugging support</li>
+          <li>Basic frontend help (HTML, CSS, JavaScript)</li>
+        </ul>
+      </div>
+
+      <div class="profile-section-card">
+        <h3>Skills</h3>
+        <div class="skills-chips">
+          <span>Python</span>
+          <span>C Programming</span>
+          <span>HTML & CSS</span>
+          <span>JavaScript (Basics)</span>
+          <span>Problem Solving</span>
+        </div>
+      </div>
+
+      <div class="profile-section-card">
+        <h3>Stats</h3>
+        <div class="profile-stats">
+          <div>
+            <h3>12</h3>
+            <p>Services Done</p>
+          </div>
+          <div>
+            <h3>4.8</h3>
+            <p>Rating</p>
+          </div>
+          <div>
+            <h3>8</h3>
+            <p>Followers</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
