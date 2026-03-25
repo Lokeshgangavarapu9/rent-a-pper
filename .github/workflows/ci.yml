@@ -1,0 +1,53 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install dependencies (if any)
+      run: |
+        # If you have a package.json, uncomment the following lines:
+        # npm install
+        # or yarn install
+
+    - name: Run linting (if configured)
+      run: |
+        # If you have linting configured (e.g., ESLint, Stylelint), uncomment and adjust:
+        # npm run lint
+
+    - name: Run tests (if configured)
+      run: |
+        # If you have tests configured (e.g., Jest, Cypress), uncomment and adjust:
+        # npm test
+
+    - name: Build project (if applicable)
+      run: |
+        # For static sites, this might just be copying files or minifying.
+        # For more complex frontend projects, this would be 'npm run build'.
+        echo "No build step required for this static site currently."
+
+    - name: Deploy to GitHub Pages (Optional - if you want to deploy this static site)
+      # This step is commented out by default. Uncomment and configure if needed.
+      # uses: peaceiris/actions-gh-pages@v3
+      # with:
+      #   github_token: ${{ secrets.GITHUB_TOKEN }}
+      #   publish_dir: ./
+      #   # If your static files are in a 'dist' folder, change publish_dir to 'dist'
+      run: echo "Deployment step skipped. Configure GitHub Pages deployment if desired."
